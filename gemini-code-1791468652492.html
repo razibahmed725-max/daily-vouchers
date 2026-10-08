@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Daily Perks & Reward Vouchers | Official Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      /* ব্লু ব্যাকগ্রাউন্ড এবং হালকা কালো শেডের গ্রেডিয়েন্ট */
+      background: radial-gradient(circle at 50% 20%, #0d2856 0%, #07152e 60%, #030814 100%);
+      color: #f3f4f6;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* TOP NOTICE BAR */
+    .top-bar {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      color: #ffffff;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* NAVIGATION */
+    nav {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+    }
+
+    .brand-logo span {
+      background: linear-gradient(135deg, #38bdf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .verified-pill {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* MAIN CONTAINER */
+    .main-wrapper {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 20px 24px 80px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      max-width: 760px;
+      margin: 20px auto 50px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #93c5fd;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #cbd5e1;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* OFFERS SECTION (2 COLUMN GRID ON DESKTOP) */
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 70px;
+    }
+
+    .card {
+      background: rgba(10, 25, 53, 0.75);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    .card-img-holder {
+      position: relative;
+      height: 220px;
+      width: 100%;
+      background: #0b1a33;
+      overflow: hidden;
+    }
+
+    .card-img-holder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-holder img {
+      transform: scale(1.04);
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #10b981;
+      color: #064e3b;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .card-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-body h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .perk-points {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .perk-points li {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .perk-points li::before {
+      content: "✔";
+      color: #10b981;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+      transform: scale(0.99);
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, #ff7a00, #ff3d00);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(255, 61, 0, 0.35);
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    /* HOW IT WORKS SECTION */
+    .steps-section {
+      background: rgba(10, 25, 53, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 22px;
+      padding: 40px 30px;
+      margin-bottom: 70px;
+      text-align: center;
+    }
+
+    .steps-section h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step-box {
+      padding: 20px;
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.25);
+      color: #60a5fa;
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+    }
+
+    .step-box h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .step-box p {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    /* TESTIMONIALS SECTION */
+    .reviews-section {
+      margin-bottom: 60px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: rgba(10, 25, 53, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .user-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .user-state {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 30px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 860px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-img-holder {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    ⚡ Daily US Promo Pool: Open for Verification Today
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="brand-logo">
+      🎁 <span>DailyPerks Hub</span>
+    </div>
+    <div class="verified-pill">
+      ● 256-Bit SSL Protected
+    </div>
+  </nav>
+
+  <!-- MAIN BODY -->
+  <div class="main-wrapper">
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <div class="hero-badge">Direct Sponsor Giveaway</div>
+      <h1>Unlock Instant <span>US Rewards & Perks</span></h1>
+      <p>Select your preferred promo card below. Complete a quick verification step with your valid US ZIP code or email to claim your voucher.</p>
+    </div>
+
+    <!-- OFFERS SECTION -->
+    <div class="section-title">
+      🔥 Active Sponsor Offers
+    </div>
+
+    <div class="offers-grid">
+
+      <!-- GAS VOUCHER CARD -->
+      <div class="card">
+        <div class="card-img-holder">
+          <img src="https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=800&q=80" alt="Gas Station Voucher">
+          <span class="floating-badge">Verified Payout</span>
+        </div>
+        <div class="card-body">
+          <h3>$100 Gas Station Voucher ⛽</h3>
+          <p>Cover your daily fuel and travel expenses. Instant access for eligible US drivers at major domestic pump stations.</p>
+          <ul class="perk-points">
+            <li>Takes less than 60 seconds</li>
+            <li>Valid for US ZIP Code entries</li>
+            <li>No hidden subscriptions required</li>
+          </ul>
+          <a href="https://singingfiles.com/show.php?l=0&u=1408565&id=75105" class="btn btn-orange" target="_blank" rel="noopener noreferrer">Claim $100 Gas Voucher</a>
+        </div>
+      </div>
+
+      <!-- FOOD GIFT CARD -->
+      <div class="card">
+        <div class="card-img-holder">
+          <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80" alt="Sub and Lunch Voucher">
+          <span class="floating-badge">High Demand</span>
+        </div>
+        <div class="card-body">
+          <h3>$100 Lunch & Sub Card 🥪</h3>
+          <p>Enjoy free fresh subs, sandwiches, and meals. Exclusive promo code access for today's active participants.</p>
+          <ul class="perk-points">
+            <li>Instant email verification</li>
+            <li>Redeemable at participating locations</li>
+            <li>100% Free entry access</li>
+          </ul>
+          <a href="https://singingfiles.com/show.php?l=0&u=1408565&id=74437" class="btn btn-blue" target="_blank" rel="noopener noreferrer">Claim $100 Meal Card</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="steps-section">
+      <h2>How To Claim In 3 Easy Steps</h2>
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <h4>Pick Your Offer</h4>
+          <p>Select either the Fuel or Lunch voucher card above.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <h4>Quick Verification</h4>
+          <p>Enter your primary US ZIP code and basic email address.</p>
+        </div>
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <h4>Receive Confirmation</h4>
+          <p>Follow the final sponsor prompt to finish your entry.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE USER REVIEWS -->
+    <div class="reviews-section">
+      <div class="section-title">
+        💬 Recent Participant Feedback
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <span class="user-name">Brandon T.</span>
+            <span class="user-state">Texas (TX)</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Was driving home yesterday and grabbed the gas voucher code. Process took like 1 minute with my zip code."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span class="user-name">Tyler M.</span>
+            <span class="user-state">Florida (FL)</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Claimed the meal card during my break. Super quick and straightforward steps."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span class="user-name">Jake R.</span>
+            <span class="user-state">Ohio (OH)</span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Did both of them this morning. Honestly surprised how smooth the verification was."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 DailyPerks Hub • Strictly for US Residents (18+) • Terms & Privacy Apply</p>
+    <p style="margin-top: 6px; font-size: 11px;">This promotion is sponsored independently and is not affiliated with any specific brand or merchant.</p>
+  </footer>
+
+</body>
+</html>
